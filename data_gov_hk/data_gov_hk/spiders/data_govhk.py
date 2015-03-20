@@ -24,6 +24,7 @@ class DataGovhkSpider(scrapy.Spider):
     provider = response.xpath("//img[contains(@class, 'media-image')]/@alt").extract()
     category = response.xpath("//a[contains(@class, 'badge')]/text()").extract()
     updateFreq = response.xpath("//section[contains(@class, 'additional-info')]/table/tbody/tr/td/text()").extract()[1]
+    scrapedTime = response.headers['Date']
     resource_name = response.xpath("//div[contains(@class, 'dataset-resource-name')]/div/div/a/@title").extract()
     resource_format = response.xpath("//div[contains(@class, 'dataset-resource-format')]/span/text()").extract() 
     resource_download = response.xpath("//div[contains(@class, 'dataset-resource-download')]/a/@href").extract()
@@ -37,5 +38,6 @@ class DataGovhkSpider(scrapy.Spider):
       item['provider'] = provider
       item['category'] = category
       item['updateFreq'] = updateFreq
+      item['scrapedTime'] = scrapedTime
       yield item
 

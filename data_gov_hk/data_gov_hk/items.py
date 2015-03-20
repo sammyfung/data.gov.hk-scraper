@@ -16,3 +16,4 @@ class DataGovHkItem(scrapy.Item):
   provider = scrapy.Field()
   category = scrapy.Field()
   updateFreq = scrapy.Field()
+  scrapedTime = scrapy.Field()
