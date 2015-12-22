@@ -8,7 +8,7 @@ class DataGovhkSpider(scrapy.Spider):
   name = "data_govhk"
   allowed_domains = ["data.gov.hk"]
   start_urls = (
-    'http://www.data.gov.hk/',
+    'https://data.gov.hk/en',
   )
 
   def parse(self, response):
